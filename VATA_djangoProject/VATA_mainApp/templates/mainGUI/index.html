@@ -107,13 +107,18 @@
         console.log("corriendo Script")
         fetch('/static/VATA_mainApp/MainOptions.json')
             .then(response => response.json())
-            .then(data => {  
-                console.log("la wena data es", data) // Accede a los datos del JSON
-                datos = data.valores;
-                console.log(datos);
-                //primerValor = data.subclase1[0][0];
-                //console.log(primerValor);
-                //elements = document.getElementById("dropdown1").options[0].text = primerValor;
+            .then(data => { 
+
+                dropdowns = [document.getElementById("dropdown1"), document.getElementById("dropdown2"), document.getElementById("dropdown3")]
+                datos = Object.entries(data);
+
+                i = 0
+                datos.forEach(([key, value]) => {
+                    dropdowns[0].options[i].text = key
+                    console.log(key);
+                    i++
+                });
+
             })
             .catch(error => {
                 console.error('Error:', error);

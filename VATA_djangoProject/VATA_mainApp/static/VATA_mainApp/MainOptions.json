@@ -1,8 +1,5 @@
 {
-"valores":
-[
-[["valor1.1.1","valor1.1.2","valor1.1.3"], ["valor1.2.1","valor1.2.2","valor1.2.3"], ["valor1.3.1","valor1.3.2","valor1.3.3"]],
-[["valor2.1.1","valor2.1.2","valor2.1.3"], ["valor2.2.1","valor2.2.2","valor2.2.3"], ["valor2.3.1","valor2.3.2","valor2.3.3"]],
-[["valor3.1.1","valor3.1.2","valor3.1.3"], ["valor3.2.1","valor3.2.2","valor3.2.3"], ["valor3.3.1","valor3.3.2","valor3.3.3"]]
-]
+"valor1":{"subValor":[0,1,2], "subValor2":[3,4,5], "subValor3":[6,7,8]},
+"valor2":{"subValor4":[9,10,11], "subValor5":[12,13,14], "subValor6":[15,16,17]},
+"valor3":{"subValor7":[18,19,20], "subValor8":[21,22,23], "subValor9":[24,25,26]}
 }

@@ -74,25 +74,25 @@
             <div class="recuadro">
                 <p>Texto 1</p>
                 <select class="dropdown" id="dropdown1" aria-label="dropdown1">
-                    <option value="opcion1.1">valorInicial1</option>
-                    <option value="opcion1.2">valorInicial2</option>
-                    <option value="opcion1.3">valorInicial3</option>
+                    <option value="0">valorInicial1</option>
+                    <option value="1">valorInicial2</option>
+                    <option value="2">valorInicial3</option>
                 </select>
             </div>
             <div class="recuadro">
                 <p>Texto 2</p>
                 <select class="dropdown" id="dropdown2" aria-label="dropdown2">
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
+                    <option value="0">Opción 1</option>
+                    <option value="1">Opción 2</option>
+                    <option value="2">Opción 3</option>
                 </select>
             </div>
             <div class="recuadro">
                 <p>Texto 3</p>
                 <select class="dropdown" id="dropdown3" aria-label="dropdown3">
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
+                    <option value="0">Opción 1</option>
+                    <option value="1">Opción 2</option>
+                    <option value="2">Opción 3</option>
                 </select>
             </div>
         </div class="texto_explicativo">
@@ -102,19 +102,19 @@
         <button class="boton" type="button" id="enviarBoton">Enviar</button>
     </div>
 
-    <!--Script Reculiao-->
+    <!--Script Para Primer Dropdown-->
     <script>
         console.log("corriendo Script")
         fetch('/static/VATA_mainApp/MainOptions.json')
             .then(response => response.json())
             .then(data => { 
 
-                dropdowns = [document.getElementById("dropdown1"), document.getElementById("dropdown2"), document.getElementById("dropdown3")]
                 datos = Object.entries(data);
+                rawData = data
 
                 i = 0
                 datos.forEach(([key, value]) => {
-                    dropdowns[0].options[i].text = key
+                    document.getElementById("dropdown1").options[i].text = key
                     console.log(key);
                     i++
                 });
@@ -122,9 +122,28 @@
             })
             .catch(error => {
                 console.error('Error:', error);
+            }); 
+        
 
-        });
-        //Cambio los valores del dropdown
+        //Cambio los valores del segundo dropdown
+        dropdown1 = document.getElementById("dropdown1")
+        dropdown1.addEventListener('click', function(){
+
+            var indiceSeleccionado = dropdown1.selectedIndex;
+            var textoSeleccionado = dropdown1.options[indiceSeleccionado].text;
+            data2doDropdown = Object.entries(rawData[textoSeleccionado]);
+
+            i = 0;
+            data2doDropdown.forEach(([key, value]) => {
+                document.getElementById("dropdown2").options[i].text = key
+                console.log(key);
+                i++
+            });
+        })
+
+
+        //Cambio los valores del tercer dropdown
+        
         
     </script>
     <!--Fin del script-->

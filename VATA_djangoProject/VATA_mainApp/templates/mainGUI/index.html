@@ -19,6 +19,10 @@
             font-size: 48px;
             font-family: cursive;
         }
+        .texto_explicativo {
+            font-size: 48px;
+            font-family: cursive;
+        }
         .logo {
             max-width: 80%;
             height: auto;
@@ -59,23 +63,25 @@
     </style>
 </head>
 <body>
+
     <div class="contenedor">
         <div class="titulo">
-            VATA
+            
         </div>
-        <img class="logo" src="ruta/de/la/imagen/logo-reciclaje.png" alt="Logo de Reciclaje">
+        {%load static%}
+        <img class="logo" src="{% static 'VATA_mainApp\logoPaginaPrincipal.png'%}" alt="Logo de Reciclaje">
         <div class="recuadros">
             <div class="recuadro">
                 <p>Texto 1</p>
-                <select class="dropdown" id="dropdown1">
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
+                <select class="dropdown" id="dropdown1" aria-label="dropdown1">
+                    <option value="opcion1.1">valorInicial1</option>
+                    <option value="opcion1.2">valorInicial2</option>
+                    <option value="opcion1.3">valorInicial3</option>
                 </select>
             </div>
             <div class="recuadro">
                 <p>Texto 2</p>
-                <select class="dropdown" id="dropdown2">
+                <select class="dropdown" id="dropdown2" aria-label="dropdown2">
                     <option value="opcion1">Opción 1</option>
                     <option value="opcion2">Opción 2</option>
                     <option value="opcion3">Opción 3</option>
@@ -83,15 +89,39 @@
             </div>
             <div class="recuadro">
                 <p>Texto 3</p>
-                <select class="dropdown" id="dropdown3">
+                <select class="dropdown" id="dropdown3" aria-label="dropdown3">
                     <option value="opcion1">Opción 1</option>
                     <option value="opcion2">Opción 2</option>
                     <option value="opcion3">Opción 3</option>
                 </select>
             </div>
+        </div class="texto_explicativo">
+                texto explicativo pa que cachen como funciona la wa
+        </div>
         </div>
         <button class="boton" type="button" id="enviarBoton">Enviar</button>
     </div>
+
+    <!--Script Reculiao-->
+    <script>
+        console.log("corriendo Script")
+        fetch('/static/VATA_mainApp/MainOptions.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);  // Accede a los datos del JSON
+                primerValor = data.subclase1[0][0];
+                console.log(primerValor);
+                elements = document.getElementById("dropdown1").options[0].text = primerValor;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+
+        });
+        //Cambio los valores del dropdown
+        
+    </script>
+    <!--Fin del script-->
+
 
     <script>
         document.getElementById('enviarBoton').addEventListener('click', function() {

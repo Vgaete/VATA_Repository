@@ -115,7 +115,7 @@
                 i = 0
                 datos.forEach(([key, value]) => {
                     document.getElementById("dropdown1").options[i].text = key
-                    console.log(key);
+                    //console.log(key);
                     i++
                 });
 
@@ -136,14 +136,30 @@
             i = 0;
             data2doDropdown.forEach(([key, value]) => {
                 document.getElementById("dropdown2").options[i].text = key
-                console.log(key);
+                //console.log(key);
                 i++
             });
+
+
+            //Cambio los valores del tercer dropdown
+            dropdown2 = document.getElementById("dropdown2")
+            dropdown2.addEventListener('click', function(){
+
+            console.log("Segundo dropdown seleccionado");
+            var indiceSeleccionado2 = dropdown2.selectedIndex;
+            var textoSeleccionado2 = dropdown2.options[indiceSeleccionado2].text;
+
+            data3erDropdown =  Object.entries(rawData[textoSeleccionado][textoSeleccionado2]);
+            console.log(data3erDropdown);
+
+            for (i = 0; i < 3; i++){
+                console.log(data3erDropdown[i][1]);
+                console.log("Vamos en", i)
+                document.getElementById("dropdown3").options[i].text = data3erDropdown[i][1];
+            }
+            
+            })
         })
-
-
-        //Cambio los valores del tercer dropdown
-        
         
     </script>
     <!--Fin del script-->
@@ -151,10 +167,7 @@
 
     <script>
         document.getElementById('enviarBoton').addEventListener('click', function() {
-            var opcionesSeleccionadas = [];
-            opcionesSeleccionadas.push(document.getElementById('dropdown1').value);
-            opcionesSeleccionadas.push(document.getElementById('dropdown2').value);
-            opcionesSeleccionadas.push(document.getElementById('dropdown3').value);
+            var opcionesSeleccionadas = [document.getElementById('dropdown1').value, document.getElementById('dropdown2').value, document.getElementById('dropdown1').value];;
 
             console.log(opcionesSeleccionadas);
             console.log("prueba de mensaje")

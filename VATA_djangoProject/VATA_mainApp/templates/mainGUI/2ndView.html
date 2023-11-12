@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verde a tu alcance</title>
+    <link rel="stylesheet" href="/static/VATA_mainApp/VATA_CSS.css">
+    <style>
+        
+
+        .contenedor {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
+        }
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+            width: 100%;
+        }
+
+        .recuadroazul1, .recuadroazul2, .recuadroazul3, .recuadroazul4 {
+            margin-bottom: 10px; /* Espacio entre cada elemento */
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <button id="retroceder">Atras</button>
+    </div>
+
+    <script>
+        document.getElementById('retroceder').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+
+    <h1> Mensaje</h1>
+    <div id="contene" class="contenido">
+        <div id="recuadroazul1">
+            <div id="p" > Nombre del lugar</div>
+            <div id="p2" > Direccion del lugar</div>
+            <div id="recuadroblanco"> breve descripcion del lugar</div>
+            <div id="recuadroblanco2"> <img src="" alt=""></div>
+        </div>
+        <div id="recuadroazul2"> 
+            <div id="p" > Nombre del lugar</div>
+            <div id="p2" > Direccion del lugar</div>
+            <div id="recuadroblanco"> breve descripcion del lugar</div>
+            <div id="recuadroblanco2"> <img src="" alt=""></div>
+        </div>
+        <div id="recuadroazul3">
+            <div id="p"> Nombre del lugar</div>
+            <div id="p2"> Direccion del lugar</div>
+            <div id="recuadroblanco"> breve descripcion del lugar</div>
+            <div id="recuadroblanco2"> <img src="" alt=""></div>
+        </div>
+        <div id="recuadroazul4">
+            <div id="p"> Nombre del lugar</div>
+            <div id="p2"> Direccion del lugar</div>
+            <div id="recuadroblanco"> breve descripcion del lugar</div>
+            <div id="recuadroblanco2"> <img src="" alt=""></div>
+        </div>
+    </div>
+</body>
+</html>

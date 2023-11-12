@@ -20,7 +20,7 @@
             font-family: cursive;
         }
         .texto_explicativo {
-            font-size: 48px;
+            font-size: 28px;
             font-family: cursive;
         }
         .logo {
@@ -63,20 +63,18 @@
     </style>
 </head>
 <body>
-
     <div class="contenedor">
         <div class="titulo">
-            
         </div>
-        {%load static%}
-        <img class="logo" src="{% static 'VATA_mainApp\logoPaginaPrincipal.png'%}" alt="Logo de Reciclaje">
+        {% load static %}
+        <img class="logo" src="{% static 'VATA_mainApp/logoPaginaPrincipal.png'%}" alt="Logo de Reciclaje">
         <div class="recuadros">
             <div class="recuadro">
                 <p>Texto 1</p>
                 <select class="dropdown" id="dropdown1" aria-label="dropdown1">
-                    <option value="0">valorInicial1</option>
+                    <!--<option value="0">valorInicial1</option>
                     <option value="1">valorInicial2</option>
-                    <option value="2">valorInicial3</option>
+                    <option value="2">valorInicial3</option>-->
                 </select>
             </div>
             <div class="recuadro">
@@ -95,84 +93,78 @@
                     <option value="2">Opción 3</option>
                 </select>
             </div>
-        </div class="texto_explicativo">
-                texto explicativo pa que cachen como funciona la wa
         </div>
+
+        <div class="texto_explicativo">
+            texto explicativo pa que cachen como funciona la wa
         </div>
         <button class="boton" type="button" id="enviarBoton">Enviar</button>
     </div>
 
-    <!--Script Para Primer Dropdown-->
-    <script>
-        console.log("corriendo Script")
-        fetch('/static/VATA_mainApp/MainOptions.json')
-            .then(response => response.json())
-            .then(data => { 
 
-                datos = Object.entries(data);
-                rawData = data
-
-                i = 0
-                datos.forEach(([key, value]) => {
-                    document.getElementById("dropdown1").options[i].text = key
-                    //console.log(key);
-                    i++
-                });
-
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            }); 
-        
-
-        //Cambio los valores del segundo dropdown
-        dropdown1 = document.getElementById("dropdown1")
-        dropdown1.addEventListener('click', function(){
-
-            var indiceSeleccionado = dropdown1.selectedIndex;
-            var textoSeleccionado = dropdown1.options[indiceSeleccionado].text;
-            data2doDropdown = Object.entries(rawData[textoSeleccionado]);
-
-            i = 0;
-            data2doDropdown.forEach(([key, value]) => {
-                document.getElementById("dropdown2").options[i].text = key
-                //console.log(key);
-                i++
+<script>
+    console.log("corriendo Script");
+    fetch('/static/VATA_mainApp/MainOptions.json')
+        .then(response => response.json())
+        .then(data => {
+            rawData = data;
+            const dropdown1 = document.getElementById("dropdown1");
+            Object.keys(data).forEach(key => {
+                const option = document.createElement("option");
+                option.value = key;
+                option.text = key;
+                dropdown1.add(option);
             });
-
-
-            //Cambio los valores del tercer dropdown
-            dropdown2 = document.getElementById("dropdown2")
-            dropdown2.addEventListener('click', function(){
-
-            console.log("Segundo dropdown seleccionado");
-            var indiceSeleccionado2 = dropdown2.selectedIndex;
-            var textoSeleccionado2 = dropdown2.options[indiceSeleccionado2].text;
-
-            data3erDropdown =  Object.entries(rawData[textoSeleccionado][textoSeleccionado2]);
-            console.log(data3erDropdown);
-
-            for (i = 0; i < 3; i++){
-                console.log(data3erDropdown[i][1]);
-                console.log("Vamos en", i)
-                document.getElementById("dropdown3").options[i].text = data3erDropdown[i][1];
-            }
-            
-            })
         })
-        
-    </script>
-    <!--Fin del script-->
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    const dropdown1 = document.getElementById("dropdown1");
+    const dropdown2 = document.getElementById("dropdown2");
+
+    dropdown1.addEventListener('change', function () {
+        const selectedOption = dropdown1.options[dropdown1.selectedIndex].text;
+        const data2doDropdown = rawData[selectedOption];
+        dropdown2.innerHTML = ""; 
+        Object.keys(data2doDropdown).forEach(key => {
+            const option = document.createElement("option");
+            option.value = key;
+            option.text = key;
+            dropdown2.add(option);
+        });
+    });
+
+ 
+    const dropdown3 = document.getElementById("dropdown3");
+    dropdown2.addEventListener('change', function () {
+        const selectedOption1 = dropdown1.options[dropdown1.selectedIndex].text;
+        const selectedOption2 = dropdown2.options[dropdown2.selectedIndex].text;
+        const data3erDropdown = rawData[selectedOption1][selectedOption2];
+        dropdown3.innerHTML = ""; 
+        Object.keys(data3erDropdown).forEach(key => {
+            const option = document.createElement("option");
+            option.value = key;
+            option.text = data3erDropdown[key];
+            dropdown3.add(option);
+        });
+    });
+</script>
+
 
 
     <script>
-        document.getElementById('enviarBoton').addEventListener('click', function() {
-            var opcionesSeleccionadas = [document.getElementById('dropdown1').value, document.getElementById('dropdown2').value, document.getElementById('dropdown1').value];;
+        document.getElementById('enviarBoton').addEventListener('click', function () {
+            var opcionesSeleccionadas = [
+                document.getElementById('dropdown1').value,
+                document.getElementById('dropdown2').value,
+                document.getElementById('dropdown3').value
+            ];
 
-            console.log(opcionesSeleccionadas);
-            console.log("prueba de mensaje")
-
-            // Aquí puedes agregar la lógica para enviar las opciones seleccionadas a tu servidor.
+            console.log("Los valores son", opcionesSeleccionadas[0], opcionesSeleccionadas[1], opcionesSeleccionadas[2])
+            // Poner pagina donde toma los dropdown como variables y usarlas para la base de datos
+            //window.location.href = '2ndView.html?dropdown1=' + opcionesSeleccionadas[0] + '&dropdown2=' + opcionesSeleccionadas[1] + '&dropdown3=' + opcionesSeleccionadas[2];
         });
     </script>
 </body>

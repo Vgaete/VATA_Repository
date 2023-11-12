@@ -4,6 +4,11 @@ from django.template import loader
 from .models import testModel
 
 def index(request):
-    template = template = loader.get_template("mainGUI/index.html")
+    template = loader.get_template("mainGUI/index.html")
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def S2ndView(request):
+    template = loader.get_template("mainGUI/2ndView.html")
     context = {}
     return HttpResponse(template.render(context, request))

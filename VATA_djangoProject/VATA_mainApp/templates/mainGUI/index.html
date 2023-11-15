@@ -150,10 +150,9 @@
             dropdown3.add(option);
         });
     });
+
+
 </script>
-
-
-
     <script>
         document.getElementById('enviarBoton').addEventListener('click', function () {
             var opcionesSeleccionadas = [
@@ -161,7 +160,7 @@
                 document.getElementById('dropdown2').value,
                 document.getElementById('dropdown3').value
             ];
-
+            localStorage.setItem("datos", opcionesSeleccionadas)
             console.log("Los valores son", opcionesSeleccionadas[0], opcionesSeleccionadas[1], opcionesSeleccionadas[2])
             window.location.href = "lugares";
         });

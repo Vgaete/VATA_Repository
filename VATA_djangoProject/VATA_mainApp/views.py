@@ -11,9 +11,10 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def S2ndView(request):
-    template = loader.get_template("mainGUI/2ndView.html")
-    context = {}
-    return HttpResponse(template.render(context, request))
+    dataLugares = Place.objects.all()
+    dataObjetos = Object.objects.all()
+    print("lugares", dataLugares)
+    return render(request, "mainGUI/2ndView.html", {'dataLugares': dataLugares, "dataObjetos": dataObjetos})
 
 def ShowData(request):
     dataLugares = Place.objects.all()

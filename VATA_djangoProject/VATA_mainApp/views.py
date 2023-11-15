@@ -1,7 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render
 
 from .models import testModel
+from .models import Object
+from .models import Place
 
 def index(request):
     template = loader.get_template("mainGUI/index.html")
@@ -10,5 +13,10 @@ def index(request):
 
 def S2ndView(request):
     template = loader.get_template("mainGUI/2ndView.html")
-    context = {"valor1": "valor1", "valor2": "valor2", "valor3": 0}
+    context = {}
     return HttpResponse(template.render(context, request))
+
+def ShowData(request):
+    dataLugares = Place.objects.all()
+    print("lugares", dataLugares)
+    return render(request, "mainGUI/test.html", {'dataLugares': dataLugares})

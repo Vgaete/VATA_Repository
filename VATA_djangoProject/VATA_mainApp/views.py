@@ -3,8 +3,7 @@ from django.template import loader
 from django.shortcuts import render
 
 from .models import testModel
-from .models import Object
-from .models import Place
+from .models import Object, Place
 
 def index(request):
     template = loader.get_template("mainGUI/index.html")
@@ -18,5 +17,6 @@ def S2ndView(request):
 
 def ShowData(request):
     dataLugares = Place.objects.all()
+    dataObjetos = Object.objects.all()
     print("lugares", dataLugares)
-    return render(request, "mainGUI/test.html", {'dataLugares': dataLugares})
+    return render(request, "mainGUI/test.html", {'dataLugares': dataLugares, "dataObjetos": dataObjetos})

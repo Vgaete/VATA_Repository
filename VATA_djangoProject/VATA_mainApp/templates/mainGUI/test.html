@@ -11,10 +11,12 @@
     </style>
 </head>
 <body>
- <h1>Student Page</h1>
+ <h1>Mostrando Dataxos</h1>
+
+ <!-- Pa Mostrar Los Lugares-->
 {% if dataLugares %}
- <h1>Show Data</h1>
- <h3>{{lugares}}</h3>
+ <h1>Lugares</h1>
+ <h3>{{dataLugares}}</h3>
  <table>
      <tr>
          <th>Nombre</th>
@@ -32,7 +34,29 @@
      {% endfor %}
 </table>
 {% else %}
- <h1>No Data</h1>
+ <h1>No Hay lugares</h1>
 {% endif %}
+
+<!-- Pa Mostrar Las Cosas -->
+<h1>Objetos</h1>
+<h3>{{dataObjetos}}
+{% if dataObjetos %}
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Imagen</th>
+    </tr>
+<tr>
+    {%for objeto in dataObjetos %}
+    <td>{{objeto.objectName}}</td>
+    <td>{{objeto.objectCategory}}</td>
+    <td>{{objeto.objectImage}}</td>
+</tr>
+    {% endfor %}
+</table>
+{%else%}
+<h1>No hay lugares</h1>
+{% endif%}
 </body>
 </html>

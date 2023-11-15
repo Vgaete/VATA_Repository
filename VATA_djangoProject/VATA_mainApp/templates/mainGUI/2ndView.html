@@ -24,30 +24,38 @@
         .recuadroazul1, .recuadroazul2, .recuadroazul3, .recuadroazul4 {
             margin-bottom: 10px; /* Espacio entre cada elemento */
         }
+
     </style>
 </head>
 <body>
 
+    <!--Variable pa guardar los datos-->
+    <p id="PaGuardarLaCategoria"></p>
 
     <script>
         /*Obtengo Los Datos De Los Dropdown de la pagina anterior*/
         var rawReceived = localStorage.getItem("datos")
         received = rawReceived.split(",")
-        //console.log(received[0])
 
         /*Los busco en el archivo json*/
         fetch('/static/VATA_mainApp/MainOptions.json')
         .then(response => response.json())
         .then(data => {
             rawData = data;
-            console.log(received)
-            console.log(rawData[received[0]][received[1]][received[2]])
+            categoriaQueBuscamos = rawData[received[0]][received[1]][received[2]]
+
+                /*Creo una lista de listas con solo los valores de la categoria a buscar*/
+                document.getElementById("PaGuardarLaCategoria").innerHTML = categoriaQueBuscamos
+                
+
+            console.log(categoriaQueBuscamos)
         })
         .catch(error => {
             console.error('Error:', error);
         });
 
-        /*Creo una lista de listas con solo los valores de la categoria a buscar*/
+
+
 
     </script>
 

@@ -1,5 +1,29 @@
 {
-"valor1":{"subValor":[0,1,2], "subValor2":[3,4,5], "subValor3":[6,7,8]},
-"valor2":{"subValor4":[9,10,11], "subValor5":[12,13,14], "subValor6":[15,16,17]},
-"valor3":{"subValor7":[18,19,20], "subValor8":[21,22,23], "subValor9":[24,25,26]}
+"valor1":
+    {
+    "subValor":
+        {"valorFinal1" : 0, "valorFinal2" : 1, "valorFinal3" : 2},
+    "subValor2":
+        {"valorFinal1" : 3, "valorFinal2" : 4, "valorFinal3" : 5}, 
+    "subValor3":
+        {"valorFinal1" : 6, "valorFinal2" : 7, "valorFinal3" : 8}
+    },
+"valor2":
+    {
+    "subValor4":
+        {"valorFinal1" : 9, "valorFinal2" : 10, "valorFinal3" : 11},
+    "subValor5":
+        {"valorFinal1" : 12, "valorFinal2" : 13, "valorFinal3" : 14}, 
+    "subValor6":
+        {"valorFinal1" : 15, "valorFinal2" : 16, "valorFinal3" : 17}
+    },
+"valor3":
+    {
+    "subValor7":
+        {"valorFinal1" : 18, "valorFinal2" : 19, "valorFinal3" : 20},
+    "subValor8":
+        {"valorFinal1" : 21, "valorFinal2" : 22, "valorFinal3" : 23}, 
+    "subValor9":
+        {"valorFinal1" : 24, "valorFinal2" : 25, "valorFinal3" : 26}
+    }
 }

@@ -160,7 +160,10 @@
                 document.getElementById('dropdown2').value,
                 document.getElementById('dropdown3').value
             ];
+
+            //Guardo los datos en el internal storage
             localStorage.setItem("datos", opcionesSeleccionadas)
+            
             console.log("Los valores son", opcionesSeleccionadas[0], opcionesSeleccionadas[1], opcionesSeleccionadas[2])
             window.location.href = "lugares";
         });

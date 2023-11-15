@@ -33,15 +33,15 @@
         /*Obtengo Los Datos De Los Dropdown de la pagina anterior*/
         var rawReceived = localStorage.getItem("datos")
         received = rawReceived.split(",")
-        console.log(received[0])
+        //console.log(received[0])
 
         /*Los busco en el archivo json*/
         fetch('/static/VATA_mainApp/MainOptions.json')
         .then(response => response.json())
         .then(data => {
             rawData = data;
-            console.log(received[2])
-            console.log(rawData[received[0]][received[1]])
+            console.log(received)
+            console.log(rawData[received[0]][received[1]][received[2]])
         })
         .catch(error => {
             console.error('Error:', error);

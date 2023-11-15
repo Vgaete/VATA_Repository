@@ -8,11 +8,11 @@ class testModel(models.Model):
 class Object(models.Model):
     objectName = models.CharField(max_length=25)
     objectCategory = models.CharField(max_length=6)
-    objectImage = models.ImageField(upload_to='objectImages/')
+    objectImage = models.ImageField(upload_to='VATA_mainApp\static\VATA_mainApp\ObjectImages')
     
 
 class Place(models.Model):
     placeName = models.CharField(max_length=25)
     location = models.CharField(max_length=500)
-    placeImage = models.ImageField(upload_to='placeImages/')
+    placeImage = models.ImageField(upload_to='VATA_mainApp\static\VATA_mainApp\PlaceImages')
     placeCategory = models.CharField(max_length=6)

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import testModel
 from .models import Object, Place
@@ -8,14 +8,14 @@ from .models import Object, Place
 
 def index(request):
     template = loader.get_template("mainGUI/index.html")
-    context = {}
-    return HttpResponse(template.render(context, request))
+    return render(request, "mainGUI/index.html", {})
 
 def S2ndView(request):
     dataLugares = Place.objects.all()
     dataObjetos = Object.objects.all()
+    receivedData = "0"
     print("lugares", dataLugares)
-    return render(request, "mainGUI/2ndView.html", {'dataLugares': dataLugares, "dataObjetos": dataObjetos})
+    return render(request, "mainGUI/2ndView.html", {'dataLugares': dataLugares, "dataObjetos": dataObjetos, "receivedData": receivedData})
 
 def ShowData(request):
     dataLugares = Place.objects.all()

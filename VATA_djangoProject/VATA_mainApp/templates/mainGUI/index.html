@@ -155,18 +155,31 @@
 </script>
     <script>
         document.getElementById('enviarBoton').addEventListener('click', function () {
+            
+            //Obtengo los valores del dropdown
             var opcionesSeleccionadas = [
                 document.getElementById('dropdown1').value,
                 document.getElementById('dropdown2').value,
                 document.getElementById('dropdown3').value
             ];
-
-            //Guardo los datos en el internal storage
-            localStorage.setItem("datos", opcionesSeleccionadas)
-            
             console.log("Los valores son", opcionesSeleccionadas[0], opcionesSeleccionadas[1], opcionesSeleccionadas[2])
-            window.location.href = "lugares";
-        });
+
+            //Obtengo lo valores del json y los busco
+            fetch('/static/VATA_mainApp/MainOptions.json')
+            .then(response => response.json())
+            .then(data => {
+                var valorABuscar = data[opcionesSeleccionadas[0]][opcionesSeleccionadas[1]][opcionesSeleccionadas[2]]
+                console.log("valor a buscar", valorABuscar)
+                //Envio los valores a la otra pagina
+                window.location.href = "lugares"
+
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+                
+
+            });
     </script>
 </body>
 </html>

@@ -45,19 +45,11 @@
         var received = rawReceived.split(",");
 
         fetch('/static/VATA_mainApp/MainOptions.json')
-<<<<<<< HEAD
         .then(response => response.json())
         .then(data => {
             rawData = data;
             console.log(rawData)
             categoriaQueBuscamos = rawData[received[0]][received[1]][received[2]]
-=======
-            .then(response => response.json())
-            .then(data => {
-                var rawData = data;
-                var categoriaQueBuscamos = rawData[received[0]][received[1]][received[2]];
-                var categoriaQueBuscamos = categoriaQueBuscamos;
->>>>>>> 0ba4651efdb35e3b3da99d04f5b8e49eec82c9ba
 
         // Guardar el valor de la categoría en LocalStorage
                 localStorage.setItem("categoriaSeleccionada", categoriaQueBuscamos);
@@ -89,8 +81,8 @@
         {% if dataLugares %}
         {% for lugar in dataLugares %}
             <div>{{localStorage.categoriaSeleccionada}}</div>
-            {% if  lugar.placeCategory == "0" %}               /* localStorage.categoriaSeleccionada no tiene ningun valor, guarda temporalmente el dropdown, ese es el problema de pq no funciona */
-            
+            {% if  lugar.placeCategory == receivedData %}              
+                <h1> {{receivedData}}</h1>
                 <div id="recuadroazul1">
                 <div id="p" > Nombre del lugar: {{lugar.placeName}}</div>
                 <div id="p2" > Direccion del lugar: {{localStorage.categoriaSeleccionada}} </div>

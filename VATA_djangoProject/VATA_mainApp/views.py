@@ -9,13 +9,12 @@ from .models import Object, Place
 def index(request):
     template = loader.get_template("mainGUI/index.html")
     return render(request, "mainGUI/index.html", {})
-    
-def S2ndView(request):
+
+def S2ndView(request, lugar):
     dataLugares = Place.objects.all()
     dataObjetos = Object.objects.all()
-    receivedData = request.GET.get("data")
     print("lugares", dataLugares)
-    return render(request, "mainGUI/2ndView.html", {'dataLugares': dataLugares, "dataObjetos": dataObjetos, "receivedData": receivedData})
+    return render(request, "mainGUI/2ndView.html", {'dataLugares': dataLugares, "dataObjetos": dataObjetos, "receivedData": lugar})
 
 def ShowData(request):
     dataLugares = Place.objects.all()

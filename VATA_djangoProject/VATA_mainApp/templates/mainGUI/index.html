@@ -171,7 +171,7 @@
                 var valorABuscar = data[opcionesSeleccionadas[0]][opcionesSeleccionadas[1]][opcionesSeleccionadas[2]]
                 console.log("valor a buscar", valorABuscar)
                 //Envio los valores a la otra pagina
-                window.location.href = "lugares"
+                window.location = "http://127.0.0.1:8000/VATA_mainApp/lugares/".concat(valorABuscar)
 
                 })
                 .catch(error => {

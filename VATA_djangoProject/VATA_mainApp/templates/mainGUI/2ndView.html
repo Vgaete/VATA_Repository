@@ -42,6 +42,7 @@
         .then(response => response.json())
         .then(data => {
             rawData = data;
+            console.log(rawData)
             categoriaQueBuscamos = rawData[received[0]][received[1]][received[2]]
 
                 /*Creo una lista de listas con solo los valores de la categoria a buscar*/

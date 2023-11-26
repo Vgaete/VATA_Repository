@@ -10,7 +10,7 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
+         /* Ajusta el ancho máximo según tus necesidades */
         }
 
         .contenido {
@@ -18,47 +18,59 @@
             flex-direction: column;
             overflow-y: auto;
             max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
-            width: 100%;
         }
 
-        .recuadroazul1, .recuadroazul2, .recuadroazul3, .recuadroazul4 {
-            margin-bottom: 10px; /* Espacio entre cada elemento */
+        .recuadroazul1{
+            margin-bottom: 20px; 
+            background-color: rgb(16, 60, 86);
+            width:700px ;
+            height: 300px;
+            position:relative ;
+            top: 20%;
+            left: 10%;
+        }
+        .lineaseparadora{
+            position: relative;top:10%; left: 2%;
+            width:700px; height:50px ;
+            background-color: rgb(255, 217, 171) ;
+            text-align: center; color: rgb(255, 217, 171)
         }
 
     </style>
 </head>
 <body>
-
-    <!--Variable pa guardar los datos-->
-    <p id="PaGuardarLaCategoria"></p>
-
+<div id="valor">
     <script>
-        /*Obtengo Los Datos De Los Dropdown de la pagina anterior*/
-        var rawReceived = localStorage.getItem("datos")
-        received = rawReceived.split(",")
+        var rawReceived = localStorage.getItem("datos");
+        var received = rawReceived.split(",");
 
-        /*Los busco en el archivo json*/
         fetch('/static/VATA_mainApp/MainOptions.json')
+<<<<<<< HEAD
         .then(response => response.json())
         .then(data => {
             rawData = data;
             console.log(rawData)
             categoriaQueBuscamos = rawData[received[0]][received[1]][received[2]]
+=======
+            .then(response => response.json())
+            .then(data => {
+                var rawData = data;
+                var categoriaQueBuscamos = rawData[received[0]][received[1]][received[2]];
+                var categoriaQueBuscamos = categoriaQueBuscamos;
+>>>>>>> 0ba4651efdb35e3b3da99d04f5b8e49eec82c9ba
 
-                /*Creo una lista de listas con solo los valores de la categoria a buscar*/
-                document.getElementById("PaGuardarLaCategoria").innerHTML = categoriaQueBuscamos
+        // Guardar el valor de la categoría en LocalStorage
+                localStorage.setItem("categoriaSeleccionada", categoriaQueBuscamos);
+                console.log("valor a comparar :",localStorage.categoriaSeleccionada)
                 
-
-            console.log(categoriaQueBuscamos)
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-
-
-
+      
+            })
+            .catch(error => {
+                 console.error('Error:', error);
+            });
 
     </script>
+ </div>
 
 
 
@@ -71,33 +83,24 @@
             window.history.back();
         });
     </script>
-
+    
     <h1> Mensaje</h1>
     <div id="contene" class="contenido">
-        <div id="recuadroazul1">
-            <div id="p" > Nombre del lugar</div>
-            <div id="p2" > Direccion del lugar</div>
-            <div id="recuadroblanco"> breve descripcion del lugar</div>
-            <div id="recuadroblanco2"> <img src="" alt=""></div>
-        </div>
-        <div id="recuadroazul2"> 
-            <div id="p" > Nombre del lugar</div>
-            <div id="p2" > Direccion del lugar</div>
-            <div id="recuadroblanco"> breve descripcion del lugar</div>
-            <div id="recuadroblanco2"> <img src="" alt=""></div>
-        </div>
-        <div id="recuadroazul3">
-            <div id="p"> Nombre del lugar</div>
-            <div id="p2"> Direccion del lugar</div>
-            <div id="recuadroblanco"> breve descripcion del lugar</div>
-            <div id="recuadroblanco2"> <img src="" alt=""></div>
-        </div>
-        <div id="recuadroazul4">
-            <div id="p"> Nombre del lugar</div>
-            <div id="p2"> Direccion del lugar</div>
-            <div id="recuadroblanco"> breve descripcion del lugar</div>
-            <div id="recuadroblanco2"> <img src="" alt=""></div>
-        </div>
+        {% if dataLugares %}
+        {% for lugar in dataLugares %}
+            <div>{{localStorage.categoriaSeleccionada}}</div>
+            {% if  lugar.placeCategory == "0" %}               /* localStorage.categoriaSeleccionada no tiene ningun valor, guarda temporalmente el dropdown, ese es el problema de pq no funciona */
+            
+                <div id="recuadroazul1">
+                <div id="p" > Nombre del lugar: {{lugar.placeName}}</div>
+                <div id="p2" > Direccion del lugar: {{localStorage.categoriaSeleccionada}} </div>
+                <div id="recuadroblanco"></div>
+                <div id="recuadroblanco2"> <img src="{{lugar.placeImage}}" alt="Imagen del lugar"></div>
+            </div>
+            <div id="lineaseparadora">.</div>
+            {% endif%}
+        {% endfor %}
+    {% endif%}
     </div>
 
 </body>

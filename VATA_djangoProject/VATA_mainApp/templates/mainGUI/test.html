@@ -28,14 +28,12 @@
      </tr>
  <tr>
      {%for lugar in dataLugares %}
-     {% if lugar.placeCategory == "cat1"%}
      <td>{{lugar.placeName}}</td>
      <td>{{lugar.location}}</td>
      <td>{{lugar.placeImage}}</td>
      <td>{{lugar.placeCategory}}</td>
-     {% endif%}
- </tr>
-     {% endfor %}
+ </tr>  
+{% endfor %}
 </table>
 {% else %}
  <h1>No Hay lugares</h1>

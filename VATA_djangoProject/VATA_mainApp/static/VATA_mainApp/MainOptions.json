@@ -1,29 +1,29 @@
 {
-"valor1":
+"Electronico":
     {
-    "subValor":
-        {"valorFinal1" : "0", "valorFinal2" : "1", "valorFinal3" : "2"},
-    "subValor2":
-        {"valorFinal1" : "3", "valorFinal2" : "4", "valorFinal3" : "5"}, 
-    "subValor3":
-        {"valorFinal1" : "6", "valorFinal2" : "7", "valorFinal3" : "8"}
+    "Tiene Bateria":
+        {"Juguetes" : "Juguetes", "Herramientas Con Bateria" : "Herramientas Con Bateria", "Hardware" : "Hardware"},
+    "No Tiene Bateria":
+        {"Electrodomesticos Grandes" : "Electrodomesticos Grandes", "Electrodomesticos Pequeños" : "Electrodomesticos Pequeños", "Herramientas Sin Bateria" : "Herramientas Sin Bateria"}, 
+    "Partes":
+        {"Baterias" : "Baterias", "Motores y cables" : "Motores y cables", "Partes De Vehiculo" : "Partes De Vehiculo"}
     },
-"valor2":
+"No Electronico":
     {
-    "subValor4":
-        {"valorFinal1" : "9", "valorFinal2" : "10", "valorFinal3" : "11"},
-    "subValor5":
-        {"valorFinal1" : "12", "valorFinal2" : "13", "valorFinal3" : "14"}, 
-    "subValor6":
-        {"valorFinal1" : "15", "valorFinal2" : "16", "valorFinal3" : "17"}
+    "Mobiliario":
+        {"Madera" : "Mobiliario Madera", "Plastico" : "Plastico", "Misceláneo Muebleria" : "Misceláneo Muebleria"},
+    "Textiles":
+        {"Ropa" : "Ropa", "Calzado" : "Calzado", "Misceláneo Textil" : "Misceláneo Textil"}, 
+    "Articulos Del Hogar":
+        {"Vajilla" : "Vajilla", "Decoracion" : "Decoracion", "Misceláneo Articulos" : "Misceláneo Articulos"}
     },
-"valor3":
+"Materia Prima":
     {
-    "subValor7":
-        {"valorFinal1" : "18", "valorFinal2" : "19", "valorFinal3" : "20"},
-    "subValor8":
-        {"valorFinal1" : "21", "valorFinal2" : "22", "valorFinal3" : "23"}, 
-    "subValor9":
-        {"valorFinal1" : "24", "valorFinal2" : "25", "valorFinal3" : "26"}
+    "Papel y Carton":
+        {"Papel" : "Papel", "Carton" : "Carton", "Varios Papel Y Carton" : "Varios Papel Y Carton"},
+    "Vidrios":
+        {"Botellas De Vidrio" : "Botellas De Vidrio", "Ventanas" : "Ventanas", "Varios Vidrio" : "Varios Vidrio"}, 
+    "Plastico":
+        {"Botellas" : "Botellas", "Envases De Plastico" : "Envases De Plastico", "Varios Plastico" : "Varios Plastico"}
     }
 }

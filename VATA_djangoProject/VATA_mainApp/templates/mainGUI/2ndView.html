@@ -80,12 +80,11 @@
     <div id="contene" class="contenido">
         {% if dataLugares %}
         {% for lugar in dataLugares %}
-            <div>{{localStorage.categoriaSeleccionada}}</div>
             {% if  lugar.placeCategory == receivedData %}              
                 <div id="recuadroazul1">
                 <div id="p" > Nombre del lugar: {{lugar.placeName}}</div>
-                <div id="p2" > Direccion del lugar: {{localStorage.categoriaSeleccionada}} </div>
-                <div id="recuadroblanco"></div>
+                <div id="p2" > Direccion del lugar: {{lugar.location}} </div>
+                <div id="recuadroblanco"> Descripcion: {{lugar.descripcion}}</div>
                 <div id="recuadroblanco2"> <img src="{{lugar.placeImage}}" alt="Imagen del lugar"></div>
             </div>
             <div id="lineaseparadora">.</div>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Bienvenido - Centro de Reciclaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .welcome {
+            border: 2px solid #2ecc71;
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            transition: margin-left 0.3s ease;
+            margin-top: 100px;
+        }
+
+        .about {
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            transition: margin-left 0.3s ease;
+            margin-top: 20px;
+        }
+
+        h1,
+        h2 {
+            border-bottom: 2px solid #2ecc71;
+            padding-bottom: 10px;
+        }
+
+        /* Estilos para la barra de navegación */
+        #main-container {
+            display: flex;
+        }
+
+        .menu {
+            height: 100vh;
+            transition: .3s;
+            background: #05d713a8;
+            padding: 20px 10px 20px 0;
+            width: 60px;
+            box-shadow: 8px 0px 9px 0px rgba(237, 236, 236, 0.677);
+            backdrop-filter: blur(5px);
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            justify-content:right;
+            align-items:start;
+        }
+
+        .menu:hover {
+            width: 150px;
+        }
+
+        .menu:hover li span:nth-child(2) {
+            display: block;
+        }
+
+        .menu-content li {
+            list-style: none;
+            border-radius: 0px 50px 50px 0;
+            transition: .3s;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .menu-content li:hover {
+            background: rgba(251, 251, 251, 0.463);
+        }
+
+        .menu-content li span:nth-child(2) {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(10, 10, 10);
+            display: flex;
+            align-items: center;
+            font-family: 'calibri';
+        }
+
+        .material-symbols-outlined {
+            font-size: 25px;
+            margin-right: 5px;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Verde a tu alcance</h1>
+    </div>
+
+    <div id="main-container">
+        <div class="menu">
+            <ul class="menu-content">
+                <li><a href=""><span class="material-symbols-outlined">home</span><span>Inicio</span></a></li>
+                <li><a href="index"><span class="material-symbols-outlined">explore</span><span>Descubre</span></a></li>
+                <li><a href="formulario"><span class="material-symbols-outlined">settings</span><span>Añade</span></a></li>
+            </ul>
+        </div>
+
+        <div class="welcome-container">
+            <div class="welcome">
+                <h1>Bienvenido</h1>
+                <p>Aquí encontrarás información y recursos sobre centros de reciclaje en los que puedas reciclar lo que quieras.</p>
+            </div>
+
+            <div class="about">
+                <h2>Acerca de nosotros</h2>
+                <p>El reciclaje es un proceso que convierte los materiales que de otro modo serían desechados en recursos útiles, reduciendo así la cantidad de residuos que se envían a los vertederos. Contribuye al cuidado del medio ambiente al conservar los recursos naturales y reducir la contaminación.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

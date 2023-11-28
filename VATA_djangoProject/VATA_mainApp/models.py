@@ -14,6 +14,7 @@ class Object(models.Model):
 class Place(models.Model):
     placeName = models.CharField(max_length=25)
     location = models.CharField(max_length=500)
-    placeImage = models.ImageField(upload_to='VATA_mainApp\static\VATA_mainApp\PlaceImages')
+    descripcion = models.CharField(max_length=1000)
+    placeImage = models.ImageField(upload_to='VATA_mainApp\static\VATA_mainApp\PlaceImages',blank=True, null=True)
     placeCategory = models.CharField(max_length=6)
     

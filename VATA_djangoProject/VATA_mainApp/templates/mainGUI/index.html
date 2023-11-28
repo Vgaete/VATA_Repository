@@ -5,56 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verde a tu Alcance</title>
     <style>
-        body {
-            background-color: #CCCCCC;
+       body {
+            background-color: #FFFFFF; /* Fondo blanco */
+            color: #000000; /* Texto negro */
             text-align: center;
             font-size: 18px;
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            position: relative; /* Asegura que las imágenes estén posicionadas respecto al cuerpo */
         }
+        .esquina-superior-izquierda {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 100px; /* Ajusta según sea necesario */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .esquina-superior-derecha {
+            position: absolute;
+            top: 0;
+            right: 0;
+            max-width: 100px; /* Ajusta según sea necesario */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .contenedor {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 50px;
         }
         .titulo {
             font-size: 48px;
-            font-family: cursive;
-        }
-        .texto_explicativo {
-            font-size: 28px;
-            font-family: cursive;
+            font-family: 'Cursive', sans-serif;
+            margin-top: 75px;
         }
         .logo {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .recuadros {
             display: flex;
             justify-content: space-around;
-            width: 80%;
-            margin-top: 20px;
+            width: 100%;
+            margin-top: 100px;
         }
         .recuadro {
-            background-color: #FFA500;
+            background-color: #008000; /* Verde bosque oscuro */
+            color: #FFFFFF; /* Texto blanco en los recuadros */
             width: 30%;
             padding: 20px;
             border-radius: 10px;
             box-sizing: border-box;
             margin: 0 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .dropdown {
             width: calc(100% - 20px);
             padding: 10px;
             border: none;
-            background-color: #FFD700;
+            background-color: #228B22; /* Verde oliva oscuro */
             border-radius: 5px;
             box-sizing: border-box;
+            margin-top: 10px;
+            color: #FFFFFF; /* Texto blanco en los dropdowns */
+        }
+        .texto_explicativo {
+            font-size: 24px;
+            margin-top: 20px;
         }
         .boton {
             margin: 20px auto;
             padding: 15px 30px;
             font-size: 24px;
-            background-color: #FF0000;
+            background-color: #228B22; /* Verde bosque medio */
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        } 
+        .boton2 {
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #8b2222; /* Verde bosque medio */
             color: #FFFFFF;
             border: none;
             border-radius: 5px;
@@ -63,11 +104,12 @@
     </style>
 </head>
 <body>
+    <img class="esquina-superior-izquierda" src="{% static 'VATA_mainApp/LogodeReciclaje.png'% }" alt="Esquina Superior Izquierda">
+    <img class="esquina-superior-derecha" src="{% static 'VATA_mainApp/LogoUsm.png'% }" alt="Esquina Superior Derecha">
+
     <div class="contenedor">
-        <div class="titulo">
+        <div class="titulo">Verde a tu Alcance</div>
         </div>
-        {% load static %}
-        <img class="logo" src="{% static 'VATA_mainApp/logoPaginaPrincipal.png'%}" alt="Logo de Reciclaje">
         <div class="recuadros">
             <div class="recuadro">
                 <p>Texto 1</p>
@@ -94,11 +136,8 @@
                 </select>
             </div>
         </div>
-
-        <div class="texto_explicativo">
-            texto  pa que cachen como funciona la wa
-        </div>
         <button class="boton" type="button" id="enviarBoton">Enviar</button>
+        <button class="boton2" type="button" id="ayudaBoton">Ayuda</button>
     </div>
 
 
@@ -171,7 +210,7 @@
                 var valorABuscar = data[opcionesSeleccionadas[0]][opcionesSeleccionadas[1]][opcionesSeleccionadas[2]]
                 console.log("valor a buscar", valorABuscar)
                 //Envio los valores a la otra pagina
-                window.location = "http://127.0.0.1:8000/VATA_mainApp/lugares/".concat(valorABuscar)
+                window.location = "http://127.0.0.1:8000/VATA_mainApp/home/index/lugares/".concat(valorABuscar)
 
                 })
                 .catch(error => {
@@ -180,6 +219,10 @@
                 
 
             });
+        document.getElementById('ayudaBoton').addEventListener('click', function () {
+        // Redireccionar a otra página de ayuda
+            window.location.href = 'paginadeayuda.html';
+        });
     </script>
 </body>
 </html>

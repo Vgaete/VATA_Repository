@@ -1,0 +1,29 @@
+{
+"Electronico":
+    {
+    "Tiene Bateria":
+        {"Juguetes" : "Juguetes", "Herramientas Con Bateria" : "Herramientas Con Bateria", "Hardware" : "Hardware"},
+    "No Tiene Bateria":
+        {"Electrodomesticos Grandes" : "Electrodomesticos Grandes", "Electrodomesticos Pequeños" : "Electrodomesticos Pequeños", "Herramientas Sin Bateria" : "Herramientas Sin Bateria"}, 
+    "Partes":
+        {"Baterias" : "Baterias", "Motores y cables" : "Motores y cables", "Partes De Vehiculo" : "Partes De Vehiculo"}
+    },
+"No Electronico":
+    {
+    "Mobiliario":
+        {"Madera" : "Mobiliario Madera", "Plastico" : "Plastico", "Misceláneo Muebleria" : "Misceláneo Muebleria"},
+    "Textiles":
+        {"Ropa" : "Ropa", "Calzado" : "Calzado", "Misceláneo Textil" : "Misceláneo Textil"}, 
+    "Articulos Del Hogar":
+        {"Vajilla" : "Vajilla", "Decoracion" : "Decoracion", "Misceláneo Articulos" : "Misceláneo Articulos"}
+    },
+"Materia Prima":
+    {
+    "Papel y Carton":
+        {"Papel" : "Papel", "Carton" : "Carton", "Varios Papel Y Carton" : "Varios Papel Y Carton"},
+    "Vidrios":
+        {"Botellas De Vidrio" : "Botellas De Vidrio", "Ventanas" : "Ventanas", "Varios Vidrio" : "Varios Vidrio"}, 
+    "Plastico":
+        {"Botellas" : "Botellas", "Envases De Plastico" : "Envases De Plastico", "Varios Plastico" : "Varios Plastico"}
+    }
+}

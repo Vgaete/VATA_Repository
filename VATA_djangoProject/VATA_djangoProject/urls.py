@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("VATA_mainApp/home", include("VATA_mainApp.urls")),
+    path("VATA_mainApp/", include("VATA_mainApp.urls")),
     path("admin/", admin.site.urls),
 ]
 from django.conf import settings
